@@ -1,0 +1,8 @@
+Format text using WackoWiki syntax:
+http://wackowiki.sourceforge.net/doc/Doc/English/Formatting
+
+Instead of regex-parsing (as in original WackoWiki) state machine is used
+(which requires more code, but make things easier).
+
+This formatter is writter several years ago, and may not support
+modern wacko features.

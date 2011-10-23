@@ -1,0 +1,1538 @@
+<html><head>
+<style>
+.cite { color:#FF0000; }
+.mark { background-color:#FFAAAA; }
+.center { text-align:center; }
+pre { margin:0px; background-color:#FFF; border:solid #888888 1px; font-family:Courier New; font-size:10pt; width:80%; padding:3px; }
+ul, ol { margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; }
+dfn { border-bottom:1px dotted #000; }
+blockquote { border-left:4px solid #CCC; margin-left:32px; padding-left:8px; padding-top:8px; padding-bottom:4px; margin-top:0px; margin-bottom:0px; }
+table.maxw-tbl { width: 100%; }table.maxw-tbl td { padding:2px; }table.bord-tbl { border-left:1px solid #000; border-top:1px solid #000; }table.bord-tbl td { padding:2px; border-right:1px solid #000; border-bottom:1px solid #000; }</style>
+</head><body>
+
+См. также: <strong><a href="/Actions/NewManual">Действия (Аctions)</a></strong><br />
+<br />
+<hr />
+
+<br />
+<h1> Форматирование текста </h1>
+<br />
+{{ToC}}<br />
+<br />
+<br />
+<br />
+Форматирование текста в Wacko немного отличается от других вики. Поэтому стоит поглядеть на описание и примеры ниже.<br />
+<br />
+<br />
+<br />
+Поэкспериментировать с форматированием вы можете в разделе <a href="/Песочница">/Песочница</a>.<br />
+<br />
+<br />
+<br />
+Текст, заключенный в две двойные кавычки слева и справа, <strong>не форматируется</strong>, и выводится так же, как был напечатан.<br />
+<br />
+<br />
+<br />
+<h2>Основы форматирования</h2>
+<br />
+<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+**полужирный**<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<strong>полужирный</strong><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+//курсив//<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<em>курсив</em><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+__подчеркнутый__<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<u>подчеркнутый</u><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+##моноширинный##<br />
+<br />
+<small>(можно использовать также №№, но это неэстетично и не приветствуется)</small><br />
+<br />
+
+</td>
+<td>
+
+<br />
+<tt>моноширинный</tt><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+++Мелкий текст++<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<small>Мелкий текст</small><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+--зачеркнутый--<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<s>зачеркнутый</s><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+<strong>NB</strong> <small>Зачеркивание, как и все следующие разметки в данном разделе, работает на многострочных текстах, в отличие от предыдущих.</small><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+Выравнивание осуществляется при помощи вот такой сложной конструкции:<br />
+<br />
+%%(wacko wrapper=text wrapper_align=center) текст по центру %%<br />
+<br />
+wrapper_align может быть center, right и justify.<br />
+<br />
+<small>Можно использовать &gt;&gt;центрированный&lt;&lt;, но не рекомендуется</small><br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(wacko wrapper=text wrapper_align=center) текст по центру </pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+!!Замечание!! <br />
+<br />
+<small>(работает также ''Замечание'', но его лучше не использовать).</small><br />
+<br />
+
+</td>
+<td>
+
+<br />
+<span class="cite">Замечание</span><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+!!(син)Текст синего цвета!! <br />
+<br />
+<small>(поддерживаются три цвета: (red /крас / красный), (green /зел / зеленый), (blue / син / синий]].</small><br />
+<br />
+
+</td>
+<td>
+
+<br />
+<span class="cite">(син)Текст синего цвета</span><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+??Вопрос?? <br />
+<br />
+
+</td>
+<td>
+
+<br />
+<span class="mark">Вопрос</span><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%код%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>
+
+int main(int arc,char **argv)
+
+{
+
+<div style="padding-left:64px;">printf("Hello, %s!\n", (argc&gt;1) ? argv[1] : "World");</div>
+<div style="padding-left:64px;">return 0;</div>
+}
+
+</pre>
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<h2>Cсылки</h2>
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+[[http://www.webscript.ru]] <br />
+<br />
+или ((http://www.webscript.ru))<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="http://www.webscript.ru">http://www.webscript.ru</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+[[http://www.webscript.ru Вебскрипт]] <br />
+<br />
+или ((http://www.webscript.ru Вебскрипт))<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="http://www.webscript.ru">Вебскрипт</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+[[Кластеры]] или ((Кластеры))<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="Кластеры">Кластеры</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+[[Кластеры Страница про кластеры]] <br />
+<br />
+или ((Кластеры Страница про кластеры))<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="Кластеры">Страница про кластеры</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+http://www.ya.ru подсвечивается автоматически.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+http://www.ya.ru<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+http://www.yandex.ru/logo1.gif <br />
+<br />
+превратится в картинку.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+http://www.yandex.ru/logo1.gif<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+((/HomePage http://www.yandex.ru/logo1.gif)) <br />
+<br />
+картинка, которая ссылка.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="/HomePage">http://www.yandex.ru/logo1.gif</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+{{a name="test"}} или {{anchor name="test"}} <br />
+<br />
+объявление якоря.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+{{a name="test"}}<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+((#test)) и ((/HomePage#TOC_1)) <br />
+<br />
+ссылки на якорь.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="#test">#test</a> и <a href="/HomePage#TOC_1">/HomePage#TOC_1</a><br />
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<strong>NB:</strong> слова в смешанном регистре (ВотТакие) выделять ссылками вообще не надо. Для прочих внутрисайтовых ссылок URL писать не нужно (иначе не возникает связи между двумя страницами). URL нужен лишь для внешних ссылок.<br />
+<br />
+<br />
+<br />
+<strong>NB:</strong> чтобы ~ВотТакое слово не стало ссылкой, поставьте перед ним знак ~ (тильда).<br />
+<br />
+<br />
+<br />
+<strong>NB:</strong> подробности простановки ссылок на документы, находящиеся не в корне, описаны в разделе <a href="Кластеры">Кластеры</a>.<br />
+<br />
+<br />
+<br />
+<h2>Заголовки</h2>
+<br />
+<br />
+<br />
+{{Include file="WackoСинтаксисЗаголовки" notoc="1"}}<br />
+<br />
+<br />
+<br />
+<h2>Отступы и списки</h2>
+<br />
+<br />
+<br />
+Отступы делаются с помощью двух пробелов (можно использовать устаревший вариант - табуляцию). <br />
+<br />
+Так же нужно выделять отступом списки.<br />
+<br />
+<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+<pre>
+
+Списки:
+
+  Отступ
+
+    Двойной отступ
+
+----
+
+  * ненумерованный список
+
+  * ненумерованный список-2
+
+----
+
+  1. нумерованный список
+
+  1. нумерованный список-2
+
+  1.#8 нумерованный список-2, с пропуском
+
+----
+
+  A. Верхний регистр
+
+  A. Верхний регистр-2
+
+----
+
+  a. Нижний регистр
+
+  a. Нижний регистр-2
+
+----
+
+  i. Римские цифры
+
+  i. Римские цифры-2
+
+----
+
+  1. список
+
+    1. вложенный список
+
+      * ещё более вложенный список
+
+    1. вложенный список-2
+
+  2. список-2
+
+</pre>
+<br />
+
+</td>
+<td>
+
+<br />
+Списки:<br />
+<br />
+<div style="padding-left:32px;">Отступ</div><br />
+<div style="padding-left:64px;">Двойной отступ</div><br />
+<hr />
+
+<br />
+<ul>
+<li> ненумерованный список</li>
+</ul><br />
+<ul>
+<li> ненумерованный список-2</li>
+</ul><br />
+<hr />
+
+<br />
+<ol type="1">
+<li> нумерованный список</li>
+</ol><br />
+<ol type="1">
+<li> нумерованный список-2</li>
+</ol><br />
+<ol type="1">
+<li>#8 нумерованный список-2, с пропуском</li>
+</ol><br />
+<hr />
+
+<br />
+<ol type="A">
+<li> Верхний регистр</li>
+</ol><br />
+<ol type="A">
+<li> Верхний регистр-2</li>
+</ol><br />
+<hr />
+
+<br />
+<ol type="a">
+<li> Нижний регистр</li>
+</ol><br />
+<ol type="a">
+<li> Нижний регистр-2</li>
+</ol><br />
+<hr />
+
+<br />
+<ol type="i">
+<li> Римские цифры</li>
+</ol><br />
+<ol type="i">
+<li> Римские цифры-2</li>
+</ol><br />
+<hr />
+
+<br />
+<ol type="1">
+<li> список</li>
+</ol><br />
+<ol type="1">
+<li> вложенный список</li>
+</ol><br />
+<ul>
+<li> ещё более вложенный список</li>
+</ul><br />
+<ol type="1">
+<li> вложенный список-2</li>
+</ol><br />
+<ol type="1">
+<li> список-2</li>
+</ol><br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<h2> Цитирование и определение </h2>
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+&lt;[ Цитирование текста ]&gt;<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<blockquote> <br />
+<br />
+Цитирование текста,<br />
+<br />
+длинного,<br />
+<br />
+с переносами<br />
+<br />
+ </blockquote>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+&gt;&gt;Однострочное цитирование<br />
+<br />
+&gt;Да, это оно<br />
+<br />
+А это обычный текст<br />
+<br />
+
+</td>
+<td>
+
+<br />
+&gt;&gt;Однострочное цитирование<br />
+<br />
+&gt;Да, это оно<br />
+<br />
+А это обычный текст<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+{{a name="terms"}}(?Термин Некоторое определение?)<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<dfn title="Термин">Некоторое определение</dfn><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+(?Термин с пробелами==Некоторое другое определение?) <br />
+<small>NB: если вокруг '==' оставить пробелы, они так же останутся в тексте страницы</small><br />
+<br />
+
+</td>
+<td>
+
+<br />
+<dfn title="Термин с пробелами">Некоторое другое определение</dfn><br />
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<h2>Сноски (footnotes)</h2>
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+Текст, потом сноска[[*]] и вторая[[**]]<br />
+<br />
+
+</td>
+<td>
+
+<br />
+Текст, потом сноска<a href="*">*</a> и вторая<a href="**">**</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+Текст, потом цифровая сноска[[*1]] и вторая[[*2]]<br />
+<br />
+
+</td>
+<td>
+
+<br />
+Текст, потом цифровая сноска<a href="*1">*1</a> и вторая<a href="*2">*2</a><br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+[[#*]] Расшифровка первой сноски<br />
+<br />
+[[#**]] Расшифровка второй сноски<br />
+<br />
+[[#1]] Расшифровка цифровой сноски<br />
+<br />
+[[#2]] Расшифровка второй цифровой сноски<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<a href="#*">#*</a> Расшифровка первой сноски<br />
+<br />
+<a href="#**">#**</a> Расшифровка второй сноски<br />
+<br />
+<a href="#1">#1</a> Расшифровка цифровой сноски<br />
+<br />
+<a href="#2">#2</a> Расшифровка второй цифровой сноски<br />
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<h2>Таблицы</h2>
+<br />
+<br />
+<br />
+<strong>Таблица с рамкой</strong><br />
+<br />
+#|<br />
+<br />
+||cell11|cell12|cell13||<br />
+<br />
+||cell21|cell22||<br />
+<br />
+|#<br />
+<br />
+<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="bord-tbl">
+<tr valign="top">
+<td>
+cell11
+</td>
+<td>
+cell12
+</td>
+<td>
+cell13
+</td>
+</tr>
+<tr valign="top">
+<td>
+cell21
+</td>
+<td colspan="2">
+cell22
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<strong>Таблица без рамок, шириной 100%</strong><br />
+<br />
+#||<br />
+<br />
+||cell11|cell12|cell13||<br />
+<br />
+||cell21|cell22||<br />
+<br />
+||#<br />
+<br />
+<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+cell11
+</td>
+<td>
+cell12
+</td>
+<td>
+cell13
+</td>
+</tr>
+<tr valign="top">
+<td>
+cell21
+</td>
+<td colspan="2">
+cell22
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<h2>Прочее</h2>
+<br />
+<br />
+<br />
+<strong>Разделитель:</strong><br />
+<br />
+----<br />
+<br />
+<hr />
+
+<br />
+<br />
+<br />
+<strong>Явный перевод строки:</strong><br />
+<br />
+тест---шмест<br />
+<br />
+тест<br />
+шмест<br />
+<br />
+<br />
+<br />
+<strong>Вывод текста как есть, без применения форматирования:</strong><br />
+<br />
+текст необходимо заключить в двойные кавычки. В качестве примера можете изучить исходный текст данной страницы.<br />
+<br />
+Кроме того, для экранирования любого вида разметки, можно использовать ~~ (тильду).<br />
+<br />
+<br />
+<br />
+<strong>Вывод HTML как есть:</strong><br />
+<br />
+<span class="cite">работает только если такую функциональность разрешил администратор сайта.</span><br />
+<br />
+&lt;# &lt;input type="text"&gt; #&gt;<br />
+<br />
+&lt;# &lt;input type="text"&gt; #&gt;<br />
+<br />
+Если вы видите &lt;input type="text"&gt; вместо поля ввода -- значит, администратор сайта не разрешил данную функцию (параметр <tt>allow_rawhtml</tt> конфигурационного файла).<br />
+<br />
+<br />
+<br />
+<strong>Верхний индекс:</strong><br />
+<br />
+E=mc^^2^^<br />
+<br />
+E=mc<sup>2</sup><br />
+<br />
+<ul>
+<li> NB: между ^^ не должно быть пробелов. Эта разметка создана для математики и ради компактности и совместимости не допускает наличия пробелов внутри размеченного блока</li>
+</ul><br />
+<br />
+<br />
+<strong>Нижний индекс:</strong><br />
+<br />
+<span class="cite">пробелы перед и после vv обязательны</span> Если их требуется избежать, следует использовать вместо них конструкцию ~""""<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="bord-tbl">
+<tr valign="top">
+<td>
+
+<br />
+H vv2vv O<br />
+<br />
+
+</td>
+<td>
+
+<br />
+H <sub>2</sub> O<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+~H<sub>2</sub>O<br />
+<br />
+
+</td>
+<td>
+
+<br />
+H<sub>2</sub>O<br />
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<ul>
+<li> NB: между vv не должно быть пробелов. Эта разметка создана для математики и ради компактности и совместимости не допускает наличия пробелов внутри размеченного блока</li>
+</ul><br />
+<br />
+<br />
+<h2>Макросы</h2>
+<br />
+<br />
+<br />
+Макросы отличаются от остальной разметки тем, что при повторном редактировании документа вы увидите не вызов макроса, а результат его работы -- они отрабатывают при сохранении текста.<br />
+<br />
+<br />
+<br />
+<strong>Имя текущего пользователя:</strong><br />
+<br />
+::::<br />
+<br />
+<a href="/RomanIvanov">RomanIvanov</a><br />
+<br />
+<br />
+<br />
+<strong>Имя текущего пользователя и дата:</strong><br />
+<br />
+::@::<br />
+<br />
+<a href="/RomanIvanov">RomanIvanov</a> /20.06.2003 18:13/<br />
+<br />
+<br />
+<br />
+<strong>Дата:</strong><br />
+<br />
+::+::<br />
+<br />
+20.06.2003 18:13<br />
+<br />
+<br />
+<br />
+<h2>Расширения - дополнительные форматтеры</h2>
+<br />
+В /WackoWiki можно легко добавлять новые обработчики текста. Их вызов происходит по синтаксису %%(name) текст%%.<br />
+<br />
+В стандартной поставке есть следующие форматтеры:<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+%%(wacko)текст как есть. [[HomePage]]%%<br />
+<br />
+Этот форматтер выводит текст так же, как если бы он был написан без форматера. Удобен для применения дополнительных оберток к тексту (выравнивание, боксы и тому подобное. См ниже.)<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(wacko)текст как есть. <a href="HomePage">HomePage</a></pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+%%(php) PHP-код%%<br />
+<br />
+Важно отметить, что код должен начинаться открывающим &lt;? и заканчиваться закрывающим ?&gt;, так как для используемого встроенного в PHP модуля разметки синтаксиса именно эти разделители являются признаком php-кода.<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(php) 
+
+&lt;?
+
+phpinfo();
+
+$s = "Hello, World!\n";
+
+print "$s";
+
+?&gt;
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(comments) Комментарий, не выводится%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(comments) 
+
+Комментарий, не выводится
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(icq) Логи ICQ Pro%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(icq) 
+
+Некто  14.05.20 14:52 Привет
+
+
+
+Роман      14.05.20 14:52 привет, ага
+
+
+
+Некто  14.05.20 14:53 экая хрень
+
+
+
+Некто  28.06.20 2:25  тестирую эту ужасную ицкупро
+
+<div style="padding-left:480px;">кашмар</div>
+
+
+Роман      28.06.20 2:25  И не говори
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(icq_l) Логи ICQ Lite%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(icq_l) 
+
+kukutz (01:59 AM) : 
+
+какой эвристикой?
+
+ 
+
+TTLogic (01:59 AM) : 
+
+wassup?
+
+ 
+
+kukutz (01:59 AM) : 
+
+оки =)
+
+ 
+
+kukutz (01:59 AM) : 
+
+ты меня видишь?
+
+
+
+кириллик?
+
+ 
+
+TTLogic (01:59 AM) : 
+
+cool. only questions i receive
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(icq_m) Логи Miranda IM (плагин nConvers)%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(icq_m) 
+
+27.06.2003 22:23:08 TTLogic wrote:
+
+ага, сколько-сколько у даты в пикселях?
+
+27.06.2003 22:23:09 Роман Иванов wrote:
+
+о, сработало
+
+27.06.2003 22:23:15 TTLogic wrote:
+
+да, я убрал 100%
+
+27.06.2003 22:23:21 Роман Иванов wrote:
+
+&gt;&gt; 27.06.2003 22:23:08 TTLogic wrote:
+
+&gt;&gt; ага, сколько-сколько у даты в пикселях?
+
+
+
+померяй!!
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(email) Email%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(email) 
+
+Hi!
+
+RI&gt;&gt; Yes, it is.
+
+&gt;Are you sure?
+
+
+
+Of course, yes!
+
+
+
+Roman.
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(sql) SQL-code%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(sql) 
+
+SELECT * FROM sometable WHERE a = '12' and b = 2 ORDER BY c DESC --Comment
+
+</pre>
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+Так же доступны форматтеры (ini), (html), (css), (pascal) и (java)<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(html) 
+
+&lt;html&gt;
+
+&lt;a href="http://www.ya.ru" width="8"&gt;test&lt;/a&gt;
+
+&lt;/html&gt;
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(ini) 
+
+[Wiki]
+
+BestEngine="WackoWiki"
+
+Version=4
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(css) 
+
+body {margin: 0; padding:5px;}
+
+.class {background:url("http://www.ya.ru/")}
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(pascal)
+
+program megaprogramme; 
+
+{ comment }
+
+BEGIN
+
+ if a = 15 then writeln('test');
+
+END.
+
+</pre>
+<br />
+<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+<br />
+<br />
+Также существуют форматтеры для CSS, diff, DTD, Javascript, mySQL,  PHP, Python, SQL, XML.<br />
+<br />
+Они могут быть вызваны путем (hl ~[форматтер]), например, ~%%(hl css)<br />
+<br />
+<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(hl css) 
+
+body {margin: 0; padding:5px;}
+
+.class {background:url("http://www.ya.ru/")}
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(hl javascript) 
+
+var a = document.getElementById("test");
+
+a.value = new Array(15, 31);
+
+function echo (msg) {alert(msg)};
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(hl php) 
+
+&lt;?
+
+phpinfo();
+
+$s = "Hello, World!\n";
+
+print "$s";
+
+?&gt;
+
+</pre>
+<br />
+<hr />
+
+<br />
+<pre>(hl xml)
+
+&lt;config&gt;
+
+&lt;section name="test"&gt;
+
+<div style="padding-left:32px;">&lt;var&gt;Test&lt;/var&gt;</div>
+<div style="padding-left:32px;">&lt;val&gt;&lt;![CDATA[..text...]]&gt;&lt;/val&gt;</div>
+&lt;/section&gt;
+
+&lt;/config&gt;
+
+</pre>
+<br />
+<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2> Обёртки вокруг форматтеров </h2>
+<br />
+Кроме того, любому форматтеру можно задать одну из "обёрток" указав ему параметр <tt>wrapper</tt>.<br />
+<br />
+Доступны обёртки: <tt>box</tt>, <tt>shade</tt>, <tt>page</tt> и <tt>text</tt>.<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+
+<br />
+<br />
+<br />
+%%(css wrapper=box wrapper_align=left wrapper_width=270)<br />
+<br />
+.d { font-size:70% }<br />
+<br />
+%%<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(css wrapper=box wrapper_align=left wrapper_width=270)
+
+.d { font-size:70% }
+
+</pre>
+<br />
+Как мы видим, обёртка <tt>box</tt> позволяет формировать удобные "меню", обтекаемые текстом. Кстати, есть специальный форматтер (box), который не делает ничего кроме как оборачивает текст в эту обёртку.<br />
+<br />
+<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+<br />
+<br />
+%%(css wrapper=shade)<br />
+<br />
+.d2 { font-size:70% }<br />
+<br />
+%%<br />
+<br />
+<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(css wrapper=shade)
+
+.d2 { font-size:70% }
+
+</pre>
+<br />
+<tt>shade</tt> -- это <tt>box</tt> без настроек.<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(wacko wrapper=text wrapper_align=center) текст по центру %%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(wacko wrapper=text wrapper_align=center) текст по центру </pre>
+<br />
+<tt>text</tt> выводит "плавающий" (float) блок текста.<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+%%(wacko wrapper=page wrapper_width=200) этот текст не может быть шире двухсот пикселей%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<pre>(wacko wrapper=page wrapper_width=200) этот текст не может быть шире двухсот пикселей</pre>
+<br />
+<tt>page</tt> позволяет регулировать ширину обычного блока текста.<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+<br />
+<br />
+%%(wacko wrapper=box wrapper_width=300) <br />
+<br />
+**Box**---- «A hundred times every day I remind myself that my inner and outer life depend upon the labors of other men, living and dead, and that I must exert myself in order to give in the measure as I have received and am still receiving.» – Albert Einstein<br />
+<br />
+%%<br />
+<br />
+
+</td>
+<td>
+
+<br />
+<br />
+<br />
+<pre>(wacko wrapper=box wrapper_width=300) <strong>Box</strong><hr />
+ «A hundred times every day I remind myself that my inner and outer life depend upon the labors of other men, living and dead, and that I must exert myself in order to give in the measure as I have received and am still receiving.» – Albert Einstein</pre>
+<br />
+<br />
+<br />
+
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+
+<br />
+<br />
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+{{BackLinks}} 
+</body></html>

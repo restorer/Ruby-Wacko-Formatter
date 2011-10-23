@@ -1,0 +1,375 @@
+<html><head>
+<style>
+.cite { color:#FF0000; }
+.mark { background-color:#FFAAAA; }
+.center { text-align:center; }
+pre { margin:0px; background-color:#FFF; border:solid #888888 1px; font-family:Courier New; font-size:10pt; width:80%; padding:3px; }
+ul, ol { margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; }
+dfn { border-bottom:1px dotted #000; }
+blockquote { border-left:4px solid #CCC; margin-left:32px; padding-left:8px; padding-top:8px; padding-bottom:4px; margin-top:0px; margin-bottom:0px; }
+table.maxw-tbl { width: 100%; }table.maxw-tbl td { padding:2px; }table.bord-tbl { border-left:1px solid #000; border-top:1px solid #000; }table.bord-tbl td { padding:2px; border-right:1px solid #000; border-bottom:1px solid #000; }</style>
+</head><body>
+
+<h2> Сага о goto. </h2>
+<br />
+С тех пор как в языках программирования возникли операторы <strong>while</strong>, <strong>shitch</strong> и прочие <strong>for</strong>, стали поговаривать и вреде <strong>goto</strong>.<br />
+<br />
+И как обычно возникло две группы: те кто кричат что <strong>goto</strong> надо искоренить навсегда, и те, кто кричат что без <strong>goto</strong> жить нельзя.<br />
+<br />
+Как я уже говорил, до маразма можно довести любую идею, какой бы умной и продвинутой она не была в начале. А истина... она посредине.<br />
+<br />
+Рассмотрим три примера:<br />
+<br />
+<br />
+<br />
+<table cellspacing="0" cellpadding="0" class="maxw-tbl">
+<tr valign="top">
+<td>
+ <div class="center"><strong>1</strong></div> 
+</td>
+<td>
+ <div class="center"><strong>2</strong></div> 
+</td>
+<td>
+ <div class="center"><strong>3</strong></div> 
+</td>
+</tr>
+<tr valign="top">
+<td>
+
+<br />
+<div class="center"><pre>
+
+     i = 1;
+
+lb1: if (kbhit()) goto lb3;
+
+     j = 100;
+
+lb2: pause(1);
+
+     j = j + 1;
+
+     if (j &gt; 0) goto lb2;
+
+     i = i + 1;
+
+     goto lb1;
+
+lb3: printf("%d\n", i);
+
+</pre></div>
+<br />
+
+</td>
+<td>
+
+<br />
+<div class="center"><pre>
+
+i = 1;
+
+while (!kbhit())
+
+{
+
+    for (j = 100; j &gt; 0; j--)
+
+    {
+
+        pause(1);
+
+    }
+
+    i++;
+
+}
+
+printf("%d\n", i);
+
+</pre></div>
+<br />
+
+</td>
+<td>
+
+<br />
+<div class="center"><pre>
+
+for (i = 1; !kbhit(); i++)
+
+for (j = 100; j--; pause(1));
+
+printf("%d\n", i);
+
+</pre></div>
+<br />
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+Первый пример отличается редкой маразматичностью по поводу использования <strong>goto</strong>. С первого взгляда асболютно не понятно что и откуда следует.<br />
+<br />
+Третий пример, напротив, характерен для кул-хацкеров, неделю назад выучивших <strong>C</strong>.<br />
+<br />
+Второй вариант представляет собой некую золотую середину- даже начинающему будет просто разобраться в логике программы.<br />
+<br />
+<hr />
+
+<br />
+А вот другой пример:<br />
+<br />
+<pre>
+
+br = false;
+
+for (k = 0; k &lt; levelsCnt; k++) {
+
+  for (l = 0; l &lt; depth; l++) {
+
+    for (i = 0; i &lt; width; i++) {
+
+      for (j = 0; j &lt; height; j++) {
+
+        if (lv[k][l][i][j] == '#') {
+
+          br = true;
+
+          break;
+
+        }
+
+      }
+
+      if (br) break;
+
+    }
+
+    if (br) break;
+
+  }
+
+  if (br) break;
+
+}
+
+</pre>
+<br />
+<br />
+<br />
+Использование <strong>goto</strong> в такой ситуации будет предпочтительнее:<br />
+<br />
+<pre>
+
+br = false;
+
+for (k = 0; k &lt; levelsCnt; k++) {
+
+  for (l = 0; l &lt; depth; l++) {
+
+    for (i = 0; i &lt; width; i++) {
+
+      for (j = 0; j &lt; height; j++) {
+
+        if (lv[k][l][i][j] == '#') goto exlbk;
+
+      }
+
+    }
+
+  }
+
+}
+
+exblk: ....
+
+</pre>
+<br />
+<hr />
+
+<br />
+Рассмотрим, однако, по какой причине нас постоянно убеждают что <strong>goto</strong> вредно и даже выкидывают этот оператор из языков программирования.<br />
+<br />
+Если ли в этом какой- нибудь скрытый смысл?<br />
+<br />
+Оказывается есть!<br />
+<br />
+Рассмотрим программу на <strong>C++</strong> :<br />
+<br />
+<pre>
+
+class C_Test
+
+{
+
+    C_Test() {arr = new int[10];}
+
+    ~C_Test() {delete[] arr;}
+
+    int *arr;
+
+};
+
+
+
+void test(void)
+
+{
+
+    int i, j;
+
+
+
+    for (i = 0; i &lt; 10; i++)
+
+    {
+
+        for (j = 0; j &lt; 10; j++)
+
+        {
+
+            C_Test tst;
+
+            if (i &gt; 5) goto nxi;
+
+        }
+
+nxi:    printf("%d\n", i);
+
+    }
+
+}
+
+</pre>
+<br />
+А вот то, во что она может <strong>примерно</strong> скомпилироваться:<br />
+<br />
+<pre>
+
+typedef struct
+
+{
+
+    int *arr;
+
+} __s_C_Test;
+
+
+
+void __c_constructor_C_Test(__s_C_Test *this)
+
+{
+
+    this-&gt;arr = __lib_allocmem(sizeof(int)*10);
+
+}
+
+
+
+void __c_descturcor_C_Test(__s_C_Test *this)
+
+{
+
+    __lib_freemem(this-&gt;arr);
+
+}
+
+
+
+void __g_test(void)
+
+{
+
+    int i, j;
+
+    __s_C_Test *tst;
+
+
+
+    for (i = 0; i &lt; 10; i++)
+
+    {
+
+        for (j = 0; j &lt; 10; j++)
+
+        {
+
+            tst = __lib_allocmem(sizeof(__s_C_Test));
+
+            __c_constructor_C_Test(tst);
+
+            if (i &gt; 5) goto __l_nxi;
+
+            __c_destructor_C_Test(tst);
+
+            __lib_freemem(tst);
+
+        }
+
+__l_nxi:
+
+        printf("%d\n", i);
+
+    }
+
+}
+
+</pre>
+<br />
+Видно, что когда происходит <strong>goto</strong> не вызывается деструктор класса и не освобождается память. Компилятору достаточно сложно отследить куда прыгнет очередной <strong>goto</strong>.<br />
+<br />
+<hr />
+
+<br />
+Решают данную проблему по разному.<br />
+<br />
+Кто-то, закомпоссировав свой мозг первосортным маразмом, делает операторы вида <strong>break &lt;число&gt;</strong> (bash, php), и теперь попробуй посчитать скобочки ^_~<br />
+<br />
+А кто-то, немного подумав, делает <strong>break &lt;метка&gt;</strong> и <strong>continue &lt;метка&gt;</strong> (java). В данном случае отследить логику гораздо проще- <strong>break</strong> всегда делается за пределы цикла вниз, <strong>continue</strong> вверх, причём на метки есть некоторые ограничения:<br />
+<br />
+<pre>
+
+for (....) {
+
+    for (....) {
+
+        if (....) break lbl;
+
+    }
+
+}
+
+for (....) {
+
+    lbl:
+
+    for (....) {
+
+    }
+
+}
+
+</pre>
+<br />
+Ну такую метку компилятор громко ругнётся (и правильно сделает ^_~). <strong>break (continue)</strong> и метка должны быть в пределах одного блока.<br />
+<br />
+<hr />
+
+<br />
+Однако только ли технические причины заставляют нас не использовать <strong>goto</strong>?<br />
+<br />
+Бездумное использование <strong>goto</strong> превращает программу в трудночитаемое спагетти. А правильно его использовать получается достаточно редко (лично я за последние два года использовал <strong>goto</strong> 0 (ноль) раз).<br />
+<br />
+Любую фразу не нужно понимать буквально, иногда надо немного поднапрячь извилины, что весьма полезно (особенно если вы считаете себя программистами).<br />
+<br />
+И по-этому предлагаю отныне писать так: "Использование <strong>goto</strong> в своих программах желательно свести к минимуму, оставляя его лишь в тех местах, где его применение действительно сокращает код и делает его понятней".<br />
+<br />
+<br />
+<br />
+&copy; Restorer, 2005<br />
+
+</body></html>
